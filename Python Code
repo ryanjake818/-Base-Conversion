@@ -1,0 +1,43 @@
+# --- Assignment – Base Conversion ---
+# Jake Ryan
+# Set an initial number (other than 4) to start the program.
+number = 5
+
+# Start a loop that runs until the user enters the value for 'quit'(4).
+print('This program is designed to assist in Base Conversion calculations')
+while number != 4:
+    print('\n1 - Convert a decimal number to binary, octal, and hexadecimal')
+    print('2 - Convert a binary number to decimal')
+    print('3 - Convert a hexadecimal number to decimal')
+    print('4 - exit')
+    selection = input('Enter Your Selection: ')
+    if selection == '1':
+        number = int(input('Enter a number: '))
+        print(f'{number} in hex is {hex(int(number))}')
+        print(f'{number} in octal is {oct(int(number))}')
+        print(f'{number} in binary is {bin(int(number))}')
+    elif selection == '2':
+        while True:
+            bin_number = input('Enter a binary number: ')
+            try:
+                decimal = int(bin_number, 2)  # Try to convert from binary to decimal
+            except:
+                print("Oops! That was not a valid binary number. Binary only contains 0's and 1's.")
+                continue
+            print(f'{bin_number} in decimal is {decimal}')
+            break
+    elif selection == '3':
+        while True:
+            hex_number = input('Enter a hexadecimal number: ')
+            try:
+                hex_decimal = int(hex_number, 16)
+            except:
+                print("Oops! That was not a valid hexadecimal number. Your number should only contain\n"
+                      "the numbers 1-9 and the letters a-f or A-F")
+                continue
+            print(f'{hex_number} in decimal is {hex_decimal}')
+            break
+    elif selection not in '1,2,3,4':
+        print("That is not a valid selection. Please choose an option from the menu below:")
+    elif selection == '4':
+        quit()
